@@ -70,7 +70,7 @@ def p1(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         url_get_plo_t = f"{url}&{param}=test&{param}=nexiz"
         responset = requests.get(url_get_plo_t, headers=head, cookies=cookies, allow_redirects=True, verify=False)
@@ -83,7 +83,7 @@ def p1(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -92,7 +92,7 @@ def p1(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={res1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -101,7 +101,7 @@ def p1(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: res1}
         lines = []
@@ -124,7 +124,7 @@ def p1(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         datas = {param: ['test', 'nexiz']}
         response = requests.post(base_url, headers=c1, data=datas, cookies=cookies, allow_redirects=True, verify=False)
@@ -137,7 +137,7 @@ def p1(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={res1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -146,7 +146,7 @@ def p1(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', res1]}
             lines_p = []
@@ -170,7 +170,7 @@ def p1(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: polotion multypart => {par1}")
                 print(f"\033[91mPOST: polotion multypart => {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
     
 
 def p2(url, base_url, params, cookies):
@@ -191,7 +191,7 @@ def p2(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -202,7 +202,7 @@ def p2(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -211,7 +211,7 @@ def p2(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={res1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -220,7 +220,7 @@ def p2(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: res1}
         lines = []
@@ -243,7 +243,7 @@ def p2(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -253,7 +253,7 @@ def p2(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={res1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -262,7 +262,7 @@ def p2(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', res1]}
             lines_p = []
@@ -286,7 +286,7 @@ def p2(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p3(url, base_url, params, cookies):
     #Less-Than_Sign"<"
@@ -306,7 +306,7 @@ def p3(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -317,7 +317,7 @@ def p3(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -326,7 +326,7 @@ def p3(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={res1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -335,7 +335,7 @@ def p3(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: res1}
         lines = []
@@ -358,7 +358,7 @@ def p3(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -368,7 +368,7 @@ def p3(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={res1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -377,7 +377,7 @@ def p3(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', res1]}
             lines_p = []
@@ -401,7 +401,7 @@ def p3(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p4(url, base_url, params, cookies):
     #double_quote_html_encode
@@ -422,7 +422,7 @@ def p4(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -433,7 +433,7 @@ def p4(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -442,7 +442,7 @@ def p4(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -451,7 +451,7 @@ def p4(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: tes1}
         lines = []
@@ -474,7 +474,7 @@ def p4(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -484,7 +484,7 @@ def p4(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -493,7 +493,7 @@ def p4(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', tes1]}
             lines_p = []
@@ -517,7 +517,7 @@ def p4(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p5(url, base_url, params, cookies):
     #single_quote_html_encode
@@ -538,7 +538,7 @@ def p5(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -549,7 +549,7 @@ def p5(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -558,7 +558,7 @@ def p5(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -567,7 +567,7 @@ def p5(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: tes1}
         lines = []
@@ -590,7 +590,7 @@ def p5(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -600,7 +600,7 @@ def p5(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -609,7 +609,7 @@ def p5(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', tes1]}
             lines_p = []
@@ -633,7 +633,7 @@ def p5(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p6(url, base_url, params, cookies):
     #"<"_html_encode
@@ -654,7 +654,7 @@ def p6(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -665,7 +665,7 @@ def p6(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -674,7 +674,7 @@ def p6(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -683,7 +683,7 @@ def p6(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: tes1}
         lines = []
@@ -706,7 +706,7 @@ def p6(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -716,7 +716,7 @@ def p6(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -725,7 +725,7 @@ def p6(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', tes1]}
             lines_p = []
@@ -749,7 +749,7 @@ def p6(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p7(url, base_url, params, cookies):
     #double_quote_double_url_encode
@@ -769,7 +769,7 @@ def p7(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -780,7 +780,7 @@ def p7(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -789,7 +789,7 @@ def p7(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -798,7 +798,7 @@ def p7(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: par1}
         lines = []
@@ -821,7 +821,7 @@ def p7(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -831,7 +831,7 @@ def p7(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -840,7 +840,7 @@ def p7(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', par1]}
             lines_p = []
@@ -864,7 +864,7 @@ def p7(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p8(url, base_url, params, cookies):
     #single_quote_double_url_encode
@@ -884,7 +884,7 @@ def p8(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -895,7 +895,7 @@ def p8(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -904,7 +904,7 @@ def p8(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -913,7 +913,7 @@ def p8(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: par1}
         lines = []
@@ -936,7 +936,7 @@ def p8(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -946,7 +946,7 @@ def p8(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -955,7 +955,7 @@ def p8(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', par1]}
             lines_p = []
@@ -979,7 +979,7 @@ def p8(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p9(url, base_url, params, cookies):
     #"<"_double_url_encode
@@ -999,7 +999,7 @@ def p9(url, base_url, params, cookies):
             found_any = True
             found_urls.append(url_g)
             print(f"\033[91m{url_g}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
 
         if (get_plotion == True):
@@ -1010,7 +1010,7 @@ def p9(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(url_get_plo)
                 print(f"\033[91m{url_get_plo}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -1019,7 +1019,7 @@ def p9(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -1028,7 +1028,7 @@ def p9(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         form_data = {param: par1}
         lines = []
@@ -1051,7 +1051,7 @@ def p9(url, base_url, params, cookies):
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
             print(f"\033[91mPOST: multypart_simple => {par1}\033[0m")
-        time.sleep(1)
+        time.sleep(1.5)
 
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
@@ -1061,7 +1061,7 @@ def p9(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
@@ -1070,7 +1070,7 @@ def p9(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             form_data_p = {param: ['test', par1]}
             lines_p = []
@@ -1094,7 +1094,7 @@ def p9(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
                 print(f"\033[91mPOST : polotion multypart=> {par1}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 def p10(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count, found_urls, head, c1
@@ -1116,7 +1116,7 @@ def p10(url, base_url, params, cookies):
                 found_any = True
                 found_urls.append(url_g)
                 print(f"\033[91m{url_g}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             if get_plotion:
                 url_get_plo = f"{url}&{param}=test&{param}={par1}"
@@ -1126,7 +1126,7 @@ def p10(url, base_url, params, cookies):
                     count += 1
                     found_urls.append(url_get_plo)
                     print(f"\033[91m{url_get_plo}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
             data_url_encoded = {param: par1}
             response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
@@ -1135,7 +1135,7 @@ def p10(url, base_url, params, cookies):
                 count += 1
                 found_urls.append(f"POST: url_encoded => {data_url_encoded}")
                 print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
-            time.sleep(1)
+            time.sleep(1.5)
 
 
 def main():
