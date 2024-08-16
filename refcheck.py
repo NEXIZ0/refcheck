@@ -57,7 +57,7 @@ def p1(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%22a"
-    res1 = 'nexiz"a"'
+    res1 = ['nexiz"a"', 'nexiz\\"a"', 'nexiz\"a"']
 
     progress_bar = tqdm(params, desc=f"Checking %22", unit="request", colour='green')
 
@@ -65,7 +65,7 @@ def p1(url, base_url, params, cookies):
         url_g = f"{url}&{param}={par1}"
         response = requests.get(url_g, headers=head, cookies=cookies, allow_redirects=True, verify=False)
         progress_bar.set_description(f"Checking_[\"]_on_({param})", refresh=True)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             count += 1
             found_any = True
             found_urls.append(url_g)
@@ -78,7 +78,7 @@ def p1(url, base_url, params, cookies):
             get_plotion = True
             url_get_plo = f"{url}&{param}=test&{param}={par1}"
             response = requests.get(url_get_plo, headers=head, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(url_get_plo)
@@ -87,7 +87,7 @@ def p1(url, base_url, params, cookies):
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
@@ -96,7 +96,7 @@ def p1(url, base_url, params, cookies):
 
         data_text_plain = f"{param}={res1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
@@ -119,7 +119,7 @@ def p1(url, base_url, params, cookies):
             'Content-Length': str(len(ppayload))
         }
         response = requests.post(base_url, data=ppayload, headers=headpos, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
@@ -132,7 +132,7 @@ def p1(url, base_url, params, cookies):
             post_plotion = True
             dataz = {param: ['test', par1]}
             response = requests.post(base_url, headers=c1, data=dataz, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
@@ -141,7 +141,7 @@ def p1(url, base_url, params, cookies):
 
             data_text_plain_p = f"{param}=test&{param}={res1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
@@ -165,7 +165,7 @@ def p1(url, base_url, params, cookies):
                 'Content-Length': str(len(payload))
             }
             response = requests.post(base_url, data=payload, headers=headers, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: polotion multypart => {par1}")
@@ -178,7 +178,7 @@ def p2(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%27a"
-    res1 = "nexiz'a'"
+    res1 = ["nexiz'a'", "nexiz\\'a'", "nexiz\'a'"]
 
     progress_bar = tqdm(params, desc=f"Checking %27", unit="request", colour='green')
 
@@ -186,7 +186,7 @@ def p2(url, base_url, params, cookies):
         url_g = f"{url}&{param}={par1}"
         response = requests.get(url_g, headers=head, cookies=cookies, allow_redirects=True, verify=False)
         progress_bar.set_description(f"Checking_[\']_on_({param})", refresh=True)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             count += 1
             found_any = True
             found_urls.append(url_g)
@@ -197,7 +197,7 @@ def p2(url, base_url, params, cookies):
         if (get_plotion == True):
             url_get_plo = f"{url}&{param}=test&{param}={par1}"
             response = requests.get(url_get_plo, headers=head, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(url_get_plo)
@@ -206,7 +206,7 @@ def p2(url, base_url, params, cookies):
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
@@ -215,7 +215,7 @@ def p2(url, base_url, params, cookies):
 
         data_text_plain = f"{param}={res1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
@@ -238,7 +238,7 @@ def p2(url, base_url, params, cookies):
             'Content-Length': str(len(ppayload))
         }
         response = requests.post(base_url, data=ppayload, headers=headpos, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
@@ -248,7 +248,7 @@ def p2(url, base_url, params, cookies):
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
             response = requests.post(base_url, headers=c1, data=dataz, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
@@ -257,7 +257,7 @@ def p2(url, base_url, params, cookies):
 
             data_text_plain_p = f"{param}=test&{param}={res1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
@@ -281,7 +281,7 @@ def p2(url, base_url, params, cookies):
                 'Content-Length': str(len(payload))
             }
             response = requests.post(base_url, data=payload, headers=headers, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
@@ -409,7 +409,7 @@ def p4(url, base_url, params, cookies):
 
     par1 = "nexiz%26%2334%3Ba"
     tes1  = "nexiz&#34;a"
-    res1 = 'nexiz"a"'
+    res1 = ['nexiz"a"', 'nexiz\\"a"', 'nexiz\"a"']
 
     progress_bar = tqdm(params, desc=f"Checking Htmlencode %22", unit="request", colour='green')
 
@@ -417,7 +417,7 @@ def p4(url, base_url, params, cookies):
         url_g = f"{url}&{param}={par1}"
         response = requests.get(url_g, headers=head, cookies=cookies, allow_redirects=True, verify=False)
         progress_bar.set_description(f"Checking_[H-\"]_on_({param})", refresh=True)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             count += 1
             found_any = True
             found_urls.append(url_g)
@@ -428,7 +428,7 @@ def p4(url, base_url, params, cookies):
         if (get_plotion == True):
             url_get_plo = f"{url}&{param}=test&{param}={par1}"
             response = requests.get(url_get_plo, headers=head, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(url_get_plo)
@@ -437,7 +437,7 @@ def p4(url, base_url, params, cookies):
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
@@ -446,7 +446,7 @@ def p4(url, base_url, params, cookies):
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
@@ -469,7 +469,7 @@ def p4(url, base_url, params, cookies):
             'Content-Length': str(len(ppayload))
         }
         response = requests.post(base_url, data=ppayload, headers=headpos, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
@@ -479,7 +479,7 @@ def p4(url, base_url, params, cookies):
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
             response = requests.post(base_url, headers=c1, data=dataz, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
@@ -488,7 +488,7 @@ def p4(url, base_url, params, cookies):
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
@@ -512,7 +512,7 @@ def p4(url, base_url, params, cookies):
                 'Content-Length': str(len(payload))
             }
             response = requests.post(base_url, data=payload, headers=headers, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
@@ -525,7 +525,7 @@ def p5(url, base_url, params, cookies):
 
     par1 = "nexiz%26%2339%3Ba"
     tes1  = "nexiz&#39;a"
-    res1 = "nexiz'a'"
+    res1 = ["nexiz'a'", "nexiz\\'a'", "nexiz\'a'"]
 
     progress_bar = tqdm(params, desc=f"Checking Htmlencod %27", unit="request", colour='green')
 
@@ -533,7 +533,7 @@ def p5(url, base_url, params, cookies):
         url_g = f"{url}&{param}={par1}"
         response = requests.get(url_g, headers=head, cookies=cookies, allow_redirects=True, verify=False)
         progress_bar.set_description(f"Checking_[H-\']_on_({param})", refresh=True)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             count += 1
             found_any = True
             found_urls.append(url_g)
@@ -544,7 +544,7 @@ def p5(url, base_url, params, cookies):
         if (get_plotion == True):
             url_get_plo = f"{url}&{param}=test&{param}={par1}"
             response = requests.get(url_get_plo, headers=head, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(url_get_plo)
@@ -553,7 +553,7 @@ def p5(url, base_url, params, cookies):
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
@@ -562,7 +562,7 @@ def p5(url, base_url, params, cookies):
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
@@ -585,7 +585,7 @@ def p5(url, base_url, params, cookies):
             'Content-Length': str(len(ppayload))
         }
         response = requests.post(base_url, data=ppayload, headers=headpos, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
@@ -595,7 +595,7 @@ def p5(url, base_url, params, cookies):
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
             response = requests.post(base_url, headers=c1, data=dataz, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
@@ -604,7 +604,7 @@ def p5(url, base_url, params, cookies):
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
@@ -628,7 +628,7 @@ def p5(url, base_url, params, cookies):
                 'Content-Length': str(len(payload))
             }
             response = requests.post(base_url, data=payload, headers=headers, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
@@ -756,7 +756,7 @@ def p7(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%2522a"
-    res1 = 'nexiz"a"'
+    res1 = ['nexiz"a"', 'nexiz\\"a"', 'nexiz\"a"']
 
     progress_bar = tqdm(params, desc=f"Checking Double %22", unit="request", colour='green')
 
@@ -764,7 +764,7 @@ def p7(url, base_url, params, cookies):
         url_g = f"{url}&{param}={par1}"
         response = requests.get(url_g, headers=head, cookies=cookies, allow_redirects=True, verify=False)
         progress_bar.set_description(f"Checking_[D-\"]_on_({param})", refresh=True)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             count += 1
             found_any = True
             found_urls.append(url_g)
@@ -775,7 +775,7 @@ def p7(url, base_url, params, cookies):
         if (get_plotion == True):
             url_get_plo = f"{url}&{param}=test&{param}={par1}"
             response = requests.get(url_get_plo, headers=head, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(url_get_plo)
@@ -784,7 +784,7 @@ def p7(url, base_url, params, cookies):
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
@@ -793,7 +793,7 @@ def p7(url, base_url, params, cookies):
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
@@ -816,7 +816,7 @@ def p7(url, base_url, params, cookies):
             'Content-Length': str(len(ppayload))
         }
         response = requests.post(base_url, data=ppayload, headers=headpos, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
@@ -826,7 +826,7 @@ def p7(url, base_url, params, cookies):
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
             response = requests.post(base_url, headers=c1, data=dataz, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
@@ -835,7 +835,7 @@ def p7(url, base_url, params, cookies):
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
@@ -859,7 +859,7 @@ def p7(url, base_url, params, cookies):
                 'Content-Length': str(len(payload))
             }
             response = requests.post(base_url, data=payload, headers=headers, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
@@ -871,7 +871,7 @@ def p8(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%2527a"
-    res1 = "nexiz'a'"
+    res1 = ["nexiz'a'", "nexiz\\'a'", "nexiz\'a'"]
 
     progress_bar = tqdm(params, desc=f"Checking Double %27", unit="request", colour='green')
 
@@ -879,7 +879,7 @@ def p8(url, base_url, params, cookies):
         url_g = f"{url}&{param}={par1}"
         response = requests.get(url_g, headers=head, cookies=cookies, allow_redirects=True, verify=False)
         progress_bar.set_description(f"Checking_[D-\']_on_({param})", refresh=True)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             count += 1
             found_any = True
             found_urls.append(url_g)
@@ -890,7 +890,7 @@ def p8(url, base_url, params, cookies):
         if (get_plotion == True):
             url_get_plo = f"{url}&{param}=test&{param}={par1}"
             response = requests.get(url_get_plo, headers=head, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(url_get_plo)
@@ -899,7 +899,7 @@ def p8(url, base_url, params, cookies):
 
         data_url_encoded = {param: par1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: url_encoded => {data_url_encoded}")
@@ -908,7 +908,7 @@ def p8(url, base_url, params, cookies):
 
         data_text_plain = f"{param}={par1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: text_plain => {data_text_plain}")
@@ -931,7 +931,7 @@ def p8(url, base_url, params, cookies):
             'Content-Length': str(len(ppayload))
         }
         response = requests.post(base_url, data=ppayload, headers=headpos, cookies=cookies, allow_redirects=True, verify=False)
-        if res1 in response.text:
+        if any(r in response.text for r in res1):
             found_any = True
             count += 1
             found_urls.append(f"POST: multypart_simple => {par1}")
@@ -941,7 +941,7 @@ def p8(url, base_url, params, cookies):
         if (post_plotion == True):
             dataz = {param: ['test', par1]}
             response = requests.post(base_url, headers=c1, data=dataz, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST plotion url_encoded: {dataz}")
@@ -950,7 +950,7 @@ def p8(url, base_url, params, cookies):
 
             data_text_plain_p = f"{param}=test&{param}={par1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion text_plain => {data_text_plain_p}")
@@ -974,7 +974,7 @@ def p8(url, base_url, params, cookies):
                 'Content-Length': str(len(payload))
             }
             response = requests.post(base_url, data=payload, headers=headers, cookies=cookies, allow_redirects=True, verify=False)
-            if res1 in response.text:
+            if any(r in response.text for r in res1):
                 found_any = True
                 count += 1
                 found_urls.append(f"POST: plosion multypart => {par1}")
