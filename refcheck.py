@@ -57,6 +57,7 @@ def p1(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%22a"
+    sen1  = 'nexiz"a"'
     res1 = ['nexiz"a"', 'nexiz\\"a"', 'nexiz\"a"']
 
     progress_bar = tqdm(params, desc=f"Checking %22", unit="request", colour='green')
@@ -94,7 +95,7 @@ def p1(url, base_url, params, cookies):
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
         time.sleep(1.5)
 
-        data_text_plain = f"{param}={res1}"
+        data_text_plain = f"{param}={sen1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
         if any(r in response.text for r in res1):
             found_any = True
@@ -103,7 +104,7 @@ def p1(url, base_url, params, cookies):
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
         time.sleep(1.5)
 
-        form_data = {param: res1}
+        form_data = {param: sen1}
         lines = []
         for name, value in form_data.items():
             lines.extend([
@@ -139,7 +140,7 @@ def p1(url, base_url, params, cookies):
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
             time.sleep(1.5)
 
-            data_text_plain_p = f"{param}=test&{param}={res1}"
+            data_text_plain_p = f"{param}=test&{param}={sen1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
             if any(r in response.text for r in res1):
                 found_any = True
@@ -148,7 +149,7 @@ def p1(url, base_url, params, cookies):
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
             time.sleep(1.5)
 
-            form_data_p = {param: ['test', res1]}
+            form_data_p = {param: ['test', sen1]}
             lines_p = []
             for name, values in form_data_p.items():
                 for value in values:
@@ -178,6 +179,7 @@ def p2(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%27a"
+    sen1 = "nexiz'a'"
     res1 = ["nexiz'a'", "nexiz\\'a'", "nexiz\'a'"]
 
     progress_bar = tqdm(params, desc=f"Checking %27", unit="request", colour='green')
@@ -204,7 +206,7 @@ def p2(url, base_url, params, cookies):
                 print(f"\033[91m{url_get_plo}\033[0m")
         time.sleep(1.5)
 
-        data_url_encoded = {param: par1}
+        data_url_encoded = {param: sen1}
         response = requests.post(base_url, data=data_url_encoded, headers=c1, cookies=cookies, allow_redirects=True, verify=False)
         if any(r in response.text for r in res1):
             found_any = True
@@ -213,7 +215,7 @@ def p2(url, base_url, params, cookies):
             print(f"\033[91mPOST: url_encoded => {data_url_encoded}\033[0m")
         time.sleep(1.5)
 
-        data_text_plain = f"{param}={res1}"
+        data_text_plain = f"{param}={sen1}"
         response = requests.post(base_url, data=data_text_plain, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
         if any(r in response.text for r in res1):
             found_any = True
@@ -222,7 +224,7 @@ def p2(url, base_url, params, cookies):
             print(f"\033[91mPOST: text_plain => {data_text_plain}\033[0m")
         time.sleep(1.5)
 
-        form_data = {param: res1}
+        form_data = {param: sen1}
         lines = []
         for name, value in form_data.items():
             lines.extend([
@@ -255,7 +257,7 @@ def p2(url, base_url, params, cookies):
                 print(f"\033[91mPOST plotion url_encoded: {dataz}\033[0m")
             time.sleep(1.5)
 
-            data_text_plain_p = f"{param}=test&{param}={res1}"
+            data_text_plain_p = f"{param}=test&{param}={sen1}"
             response = requests.post(base_url, data=data_text_plain_p, headers=c2, cookies=cookies, allow_redirects=True, verify=False)
             if any(r in response.text for r in res1):
                 found_any = True
@@ -264,7 +266,7 @@ def p2(url, base_url, params, cookies):
                 print(f"\033[91mPOST: plosion text_plain => {data_text_plain_p}\033[0m")
             time.sleep(1.5)
 
-            form_data_p = {param: ['test', res1]}
+            form_data_p = {param: ['test', sen1]}
             lines_p = []
             for name, values in form_data_p.items():
                 for value in values:
