@@ -19,7 +19,7 @@ print(r"""
 | ▓▓     | ▓▓▓▓▓▓▓▓ ▓▓     | ▓▓_____| ▓▓  | ▓▓ ▓▓▓▓▓▓▓▓ ▓▓_____| ▓▓▓▓▓▓\ 
 | ▓▓      \▓▓     \ ▓▓      \▓▓     \ ▓▓  | ▓▓\▓▓     \\▓▓     \ ▓▓  \▓▓\
  \▓▓       \▓▓▓▓▓▓▓\▓▓       \▓▓▓▓▓▓▓\▓▓   \▓▓ \▓▓▓▓▓▓▓ \▓▓▓▓▓▓▓\▓▓   \▓▓
-                                                       By @NEXIZ0    V2.0
+                                                       By @NEXIZ0    V2.1
 
 
 """)
@@ -57,7 +57,7 @@ def p1(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%22a"
-    res1 = 'nexiz"a'
+    res1 = 'nexiz"a"'
 
     progress_bar = tqdm(params, desc=f"Checking %22", unit="request", colour='green')
 
@@ -178,7 +178,7 @@ def p2(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%27a"
-    res1 = "nexiz'a"
+    res1 = "nexiz'a'"
 
     progress_bar = tqdm(params, desc=f"Checking %27", unit="request", colour='green')
 
@@ -409,7 +409,7 @@ def p4(url, base_url, params, cookies):
 
     par1 = "nexiz%26%2334%3Ba"
     tes1  = "nexiz&#34;a"
-    res1 = 'nexiz"a'
+    res1 = 'nexiz"a"'
 
     progress_bar = tqdm(params, desc=f"Checking Htmlencode %22", unit="request", colour='green')
 
@@ -525,7 +525,7 @@ def p5(url, base_url, params, cookies):
 
     par1 = "nexiz%26%2339%3Ba"
     tes1  = "nexiz&#39;a"
-    res1 = "nexiz'a"
+    res1 = "nexiz'a'"
 
     progress_bar = tqdm(params, desc=f"Checking Htmlencod %27", unit="request", colour='green')
 
@@ -756,7 +756,7 @@ def p7(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%2522a"
-    res1 = 'nexiz"a'
+    res1 = 'nexiz"a"'
 
     progress_bar = tqdm(params, desc=f"Checking Double %22", unit="request", colour='green')
 
@@ -871,7 +871,7 @@ def p8(url, base_url, params, cookies):
     global found_any, get_plotion, post_plotion, boundary, count
 
     par1 = "nexiz%2527a"
-    res1 = "nexiz'a"
+    res1 = "nexiz'a'"
 
     progress_bar = tqdm(params, desc=f"Checking Double %27", unit="request", colour='green')
 
